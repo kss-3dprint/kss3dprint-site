@@ -152,12 +152,11 @@ fetch('data.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
     L=W<720?95:120;
     P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}));
   }
-  addEventListener('resize',init);
-  addEventListener('mousemove',e=>{m.x=e.clientX;m.y=e.clientY});
-  addEventListener('touchstart',e=>{const t=e.touches[0];m.x=t.clientX;m.y=t.clientY},{passive:true});
-  addEventListener('touchend',()=>{m.x=m.y=-999});
-  addEventListener('touchmove',e=>{const t=e.touches[0];m.x=t.clientX;m.y=t.clientY},{passive:true});
-  addEventListener('mouseout',()=>{m.x=m.y=-999});
+  let lw=innerWidth;
+  addEventListener('resize',()=>{if(innerWidth!==lw){lw=innerWidth;init()}});
+  const touch=matchMedia('(hover: none), (pointer: coarse)').matches;
+  if(!touch)addEventListener('mousemove',e=>{m.x=e.clientX;m.y=e.clientY});
+  if(!touch)addEventListener('mouseout',()=>{m.x=m.y=-999});
   function tick(){
     x.clearRect(0,0,W,H);
     for(const p of P){
