@@ -1,0 +1,60 @@
+media:
+  input: images
+  output: /images
+
+content:
+  - name: site
+    label: Сайт (тексти, посилання, роботи, правила)
+    type: file
+    path: data.json
+    format: json
+    fields:
+      - { name: siteName, label: Назва студії, type: string }
+      - { name: logo, label: Логотип, type: image }
+      - { name: telegramUrl, label: Посилання Telegram, type: string }
+      - { name: instagramUrl, label: Посилання Instagram, type: string }
+      - { name: tiktokUrl, label: Посилання TikTok, type: string }
+      - name: hero
+        label: Перший екран
+        type: object
+        fields:
+          - { name: title, label: Заголовок, type: string }
+          - { name: subtitle, label: Підзаголовок, type: text }
+          - { name: primaryButton, label: Головна кнопка, type: string }
+          - { name: secondaryButton, label: Друга кнопка, type: string }
+      - { name: servicesTitle, label: Заголовок блоку «Послуги», type: string }
+      - name: services
+        label: Послуги
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Назва, type: string }
+          - { name: text, label: Опис, type: text }
+      - { name: portfolioTitle, label: Заголовок блоку «Приклади робіт», type: string }
+      - name: portfolio
+        label: Приклади робіт
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Фото, type: image }
+          - { name: title, label: Назва, type: string }
+          - { name: description, label: Опис, type: text }
+          - { name: price, label: Ціна, type: string }
+      - { name: processTitle, label: Заголовок блоку «Як ми працюємо», type: string }
+      - name: process
+        label: Кроки роботи
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Назва, type: string }
+          - { name: text, label: Опис, type: text }
+      - { name: rulesTitle, label: Заголовок блоку «Правила замовлення», type: string }
+      - name: rules
+        label: Правила замовлення
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Назва правила, type: string }
+          - { name: text, label: Текст правила, type: text }
+      - { name: footerTitle, label: Заголовок футера, type: string }
+      - { name: footerText, label: Текст футера, type: text }

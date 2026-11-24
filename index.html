@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KSS 3DPrint — 3D-друк і 3D-моделювання на замовлення</title>
+<meta name="description" content="Студія 3D-друку та 3D-моделювання KSS 3DPrint: прототипи, ремонтні деталі, автокріплення, сувеніри. Доставка Новою Поштою по Україні.">
+<link rel="icon" href="images/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{--bg:#F8FAFC;--card:rgba(255,255,255,.92);--line:#E2E8F0;--ink:#0F172A;--ink2:#475569;--acc:#F97316;--acc2:#EA580C}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header,main,footer{position:relative;z-index:1}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;border-radius:10px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none;border:2px solid var(--acc);transition:background .2s,border-color .2s;font-size:15px}
+.btn:hover{background:var(--acc2);border-color:var(--acc2)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn svg,.ico svg{width:20px;height:20px;fill:currentColor;flex:none}
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(248,250,252,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;font-size:18px;margin-right:auto}
+.brand img{height:44px;width:44px;object-fit:contain}
+.ico{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);transition:.2s}
+.ico:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+.bar .btn{padding:10px 18px;font-size:14px}
+/* hero */
+.hero{padding:84px 0 72px}
+.hero h1{font-size:clamp(32px,5.4vw,58px);line-height:1.1;font-weight:800;max-width:860px;letter-spacing:-.02em}
+.hero p{margin-top:22px;max-width:640px;color:var(--ink2);font-size:18px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+section{padding:64px 0}
+h2{font-size:clamp(26px,3.6vw,36px);font-weight:800;margin-bottom:30px;letter-spacing:-.01em}
+.grid{display:grid;gap:20px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card h3{font-size:18px;margin-bottom:8px;line-height:1.3}
+.card p{color:var(--ink2);font-size:15px}
+.svc{border-top:3px solid var(--acc)}
+/* portfolio */
+.work{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:4/3;background:#EEF2F7;position:relative;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.ph{position:absolute;inset:0;display:grid;place-items:center;padding:20px;text-align:center;font-weight:700;color:var(--ink2);background:repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 12px,#E8EEF5 12px,#E8EEF5 24px)}
+.work .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.price{margin-top:auto;font-weight:800;color:var(--acc2)}
+/* steps */
+.step{counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;margin-bottom:14px}
+.steps{counter-reset:s}
+/* accordion */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+details{background:var(--card);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px}
+summary{cursor:pointer;list-style:none;padding:16px 20px;font-weight:700;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--acc);transition:transform .2s;flex:none}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 20px 18px;color:var(--ink2);font-size:15px}
+/* footer */
+footer{background:var(--ink);color:#fff;padding:64px 0 40px;margin-top:40px}
+footer h2{margin-bottom:10px}
+footer p{color:#CBD5E1;max-width:520px}
+.fbtns{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:28px}
+.fbtns .btn{padding:18px 24px;font-size:16px}
+.fbtns .btn.ghost{color:#fff;border-color:#64748B}
+.fbtns .btn.ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.copy{margin-top:40px;color:#94A3B8;font-size:13px}
+@media(max-width:720px){.rules{grid-template-columns:1fr}.hero{padding:52px 0 40px}.bar .btn span{display:none}.bar .btn{padding:10px 12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top"><img id="logo" src="images/logo.jpg" alt="" onerror="this.style.display='none'"><span id="siteName">KSS 3DPrint</span></a>
+    <a class="ico" data-link="instagramUrl" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg></a>
+    <a class="ico" data-link="tiktokUrl" href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 6.7a5.4 5.4 0 01-3.3-1.1 5.4 5.4 0 01-2.1-3.5h-3.5v13.3a2.5 2.5 0 11-1.8-2.4V9.5a6 6 0 105.3 6V9.1a8.9 8.9 0 005.4 1.8V7.4c-.1 0-.1-.7 0-.7z"/></svg></a>
+    <a class="btn" data-link="telegramUrl" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9.8 15.3l-.4 5.6c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.900.3 2.200-1l4-18.700c.4-1.600-.6-2.300-1.700-1.900L1.500 9.500c-1.600.6-1.600 1.500-.3 1.900l6 1.900 14-8.800c.7-.4 1.300-.2.800.3z"/></svg><span id="tgBtn">Написати в Telegram</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1 id="hTitle"></h1>
+    <p id="hSub"></p>
+    <div class="cta">
+      <a class="btn" id="hPrimary" data-link="telegramUrl" href="#" target="_blank" rel="noopener"></a>
+      <a class="btn ghost" id="hSecondary" href="#portfolio"></a>
+    </div>
+  </div>
+
+  <section><div class="wrap"><h2 id="servicesTitle"></h2><div class="grid g4" id="services"></div></div></section>
+  <section id="portfolio"><div class="wrap"><h2 id="portfolioTitle"></h2><div class="grid g3" id="works"></div></div></section>
+  <section><div class="wrap"><h2 id="processTitle"></h2><div class="grid g3 steps" id="process"></div></div></section>
+  <section><div class="wrap"><h2 id="rulesTitle"></h2><div class="rules" id="rules"></div></div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2 id="fTitle"></h2>
+    <p id="fText"></p>
+    <div class="fbtns">
+      <a class="btn" data-link="telegramUrl" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9.8 15.3l-.4 5.6c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.900.3 2.200-1l4-18.700c.4-1.600-.6-2.300-1.700-1.900L1.500 9.500c-1.600.6-1.600 1.500-.3 1.900l6 1.900 14-8.800c.7-.4 1.300-.2.800.3z"/></svg>Telegram</a>
+      <a class="btn ghost" data-link="instagramUrl" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg>Instagram</a>
+      <a class="btn ghost" data-link="tiktokUrl" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 6.7a5.4 5.4 0 01-3.3-1.1 5.4 5.4 0 01-2.1-3.5h-3.5v13.3a2.5 2.5 0 11-1.8-2.4V9.5a6 6 0 105.3 6V9.1a8.9 8.9 0 005.4 1.8V7.4c-.1 0-.1-.7 0-.7z"/></svg>TikTok</a>
+    </div>
+    <p class="copy">© <span id="year"></span> KSS 3DPrint</p>
+  </div>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+$('year').textContent=new Date().getFullYear();
+
+fetch('data.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
+  document.querySelectorAll('[data-link]').forEach(a=>{const u=d[a.dataset.link];if(u)a.href=u;});
+  if(d.siteName){$('siteName').textContent=d.siteName}
+  if(d.logo){$('logo').src=d.logo}
+  const h=d.hero||{};
+  $('hTitle').textContent=h.title||'';$('hSub').textContent=h.subtitle||'';
+  $('hPrimary').textContent=h.primaryButton||'';$('hSecondary').textContent=h.secondaryButton||'';
+  $('servicesTitle').textContent=d.servicesTitle||'';
+  $('services').innerHTML=(d.services||[]).map(s=>`<div class="card svc"><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join('');
+  $('portfolioTitle').textContent=d.portfolioTitle||'';
+  $('works').innerHTML=(d.portfolio||[]).map(w=>`<article class="card work"><div class="thumb"><div class="ph">${esc(w.title)}</div>${w.image?`<img src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" onerror="this.remove()">`:''}</div><div class="body"><h3>${esc(w.title)}</h3><p>${esc(w.description)}</p><div class="price">${esc(w.price)}</div></div></article>`).join('');
+  $('processTitle').textContent=d.processTitle||'';
+  $('process').innerHTML=(d.process||[]).map(s=>`<div class="card step"><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join('');
+  $('rulesTitle').textContent=d.rulesTitle||'';
+  $('rules').innerHTML=(d.rules||[]).map((r,i)=>`<details><summary>${i+1}. ${esc(r.title)}</summary><p>${esc(r.text)}</p></details>`).join('');
+  $('fTitle').textContent=d.footerTitle||'';$('fText').textContent=d.footerText||'';
+}).catch(e=>console.error('Не вдалося завантажити data.json',e));
+
+/* Інтерактивна сітка частинок */
+(function(){
+  const c=$('bg'),x=c.getContext('2d');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  let W,H,P=[],m={x:-999,y:-999},R=150,L=120,dpr=Math.min(devicePixelRatio||1,2);
+  function init(){
+    W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    const n=W<720?32:Math.min(110,Math.round(W*H/14000));
+    L=W<720?95:120;
+    P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}));
+  }
+  addEventListener('resize',init);
+  addEventListener('mousemove',e=>{m.x=e.clientX;m.y=e.clientY});
+  addEventListener('touchmove',e=>{const t=e.touches[0];m.x=t.clientX;m.y=t.clientY},{passive:true});
+  addEventListener('mouseout',()=>{m.x=m.y=-999});
+  function tick(){
+    x.clearRect(0,0,W,H);
+    for(const p of P){
+      const dx=p.x-m.x,dy=p.y-m.y,d=Math.hypot(dx,dy);
+      if(d<R&&d>0){const f=(R-d)/R*.6;p.x+=dx/d*f;p.y+=dy/d*f}
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    }
+    x.lineWidth=1;x.strokeStyle='rgba(15,23,42,0.12)';
+    for(let i=0;i<P.length;i++){
+      for(let j=i+1;j<P.length;j++){
+        const d=Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y);
+        if(d<L){x.beginPath();x.moveTo(P[i].x,P[i].y);x.lineTo(P[j].x,P[j].y);x.stroke()}
+      }
+      const d=Math.hypot(P[i].x-m.x,P[i].y-m.y);
+      if(d<R){x.beginPath();x.moveTo(P[i].x,P[i].y);x.lineTo(m.x,m.y);x.stroke()}
+    }
+    x.fillStyle='rgba(15,23,42,0.25)';
+    for(const p of P){x.beginPath();x.arc(p.x,p.y,1.8,0,6.283);x.fill()}
+    requestAnimationFrame(tick);
+  }
+  init();tick();
+})();
+</script>
+</body>
+</html>
